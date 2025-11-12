@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types'; 
-// Se elimina la importación de uiInfo y extractHiddenPrompt, ya que no se usan.
-// Si se mantiene, SonarQube marcará esta línea.
 
 function parseNumber(s) {
   const cleaned = String(s).replace(',', '.');
-  // ✅ Corregido S7773: Usando Number.parseFloat
+  
   const num = Number.parseFloat(cleaned); 
-  // ✅ Corregido S7773: Usando Number.isNaN
+  
   return Number.isNaN(num) ? 0 : num;
 }
 
@@ -102,7 +100,7 @@ export default function App() {
         <div style={{minWidth:120}}>Result: {res}</div>
       </div>
 
-      <hr />
+      <hr/>
 
       <h2>LLM (Secure)</h2>
       <p style={{maxWidth:700}}>The user template mechanism has been removed to prevent Prompt Injection attacks. The input is now treated as safe data.</p>
@@ -114,7 +112,7 @@ export default function App() {
 
       {showLLM && <div style={{marginTop:10}}><SecureLLM userInput={userInp} /></div>}
 
-      <hr />
+      <hr/>
     </div>
   );
 }
